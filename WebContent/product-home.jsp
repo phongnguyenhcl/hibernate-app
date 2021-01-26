@@ -11,7 +11,7 @@
 <body>
 	<form action="addProduct" method="get">
 		Enter the product's name: <input type="text" name="product_name"><br>
-		Enter the product's size: <input type="number" name="product_size"><br>
+		Enter the product's weight: <input type="number" name="product_size"><br>
 		<input type="submit" value="Submit">
 	</form>
 	

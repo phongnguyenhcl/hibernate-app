@@ -27,7 +27,7 @@ public class ProductFilter implements Filter {
 		if (size>0)
 			chain.doFilter(request, response);
 		else
-			out.println("Negative size");
+			out.println("Invalid: Negative weight");
 	}
 
 }
