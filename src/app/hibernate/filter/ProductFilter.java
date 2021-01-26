@@ -18,16 +18,20 @@ import javax.servlet.http.HttpServletRequest;
 @WebFilter("/addProduct")
 public class ProductFilter implements Filter {
 
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+			throws IOException, ServletException {
 
 		PrintWriter out = response.getWriter();
-		
+
+		String productName = request.getParameter("product_name");
 		int size = Integer.parseInt(request.getParameter("product_size"));
-		
-		if (size>0)
-			chain.doFilter(request, response);
+
+		if (request.getParameter("product_name") == null 
+			|| request.getParameter("product_name").isEmpty()
+			|| size < 0)
+			out.println("Invalid: Check your inputs again!");
 		else
-			out.println("Invalid: Negative weight");
+			chain.doFilter(request, response);
 	}
 
 }
